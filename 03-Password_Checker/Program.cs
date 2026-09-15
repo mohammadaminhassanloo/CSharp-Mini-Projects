@@ -33,14 +33,22 @@ namespace _03_Password_Checker
                         }
                         else
                         {
-                            if (password.Equals(password_again))
+                            if (password.Length < 6 || password_again.Length < 6)
                             {
-                                Console.WriteLine("Password created Successfully!");
+                                Console.WriteLine("Your password shoud have 6 or more characters!");
                             }
                             else
                             {
-                                Console.WriteLine("Password does not match!");
+                                if (password.Equals(password_again))
+                                {
+                                    Console.WriteLine("Password created Successfully!");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Password does not match!");
+                                }
                             }
+                            
                         }
                         break;
                     case 2:
