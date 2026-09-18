@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Runtime.InteropServices;
 
 namespace _04_Student_Management_System
 {
@@ -14,8 +15,8 @@ namespace _04_Student_Management_System
             try
             {
                 int students;
-                Dictionary<string, int> myDict = new Dictionary<string, int>();
-                List<double> grades = new List<double>();
+                Dictionary<string, double> myDict = new Dictionary<string, double>();
+                List<int> grades = new List<int>();
 
                 Console.Write("How many students do you have: ");
                 int studentsCount = Convert.ToInt16(Console.ReadLine());
@@ -57,12 +58,18 @@ namespace _04_Student_Management_System
 
                     }
                 }
+                string average = $"The average of grades is {AverageCalculator(grades)}";
+                for (int i = 0; i < average.Length; i++)
+                {
+                    Console.Write(average[i]);
+                    Thread.Sleep(200);
+                }
+
             }
             catch(FormatException)
             {
                 Console.WriteLine("Please enter just number!");
             }
-
             Console.ReadKey();
         }
         static double AverageCalculator(List<int> numbers)
